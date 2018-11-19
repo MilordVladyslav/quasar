@@ -25,7 +25,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(
 }
 
 .help {
-    width: 66px;
+    width: 222px;
     margin: auto;
 }
 
@@ -76,6 +76,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(
         position: relative;
         top: -35px;
         left: 566px;
+        color: white;
     }
 
     .edge {
@@ -83,7 +84,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(
         height: 100%;
         float: right;
         margin-right: 105px;
-        background-color: black;
+        background-color: white;
         // &:after {
         //     position: relative;
         //     top: -20px;
@@ -103,26 +104,65 @@ filter: progid:DXImageTransform.Microsoft.gradient(
     color: #13991a;
 }
 
-.random-1-8, .bit, .substract {
+.random-1-8, .random-4-7, .bit, .substract {
     float: left;
     margin: auto;
 }
 
-.substract {
-    margin-left: 15%;
+.top-control  {
+    width: 100%;
+    height: 65px;
+    div {
+
+        height: 100%;
+        float: left;
+        width: 33.3%;
+    }
+    button {
+        width: 100%;
+    }
+    .bit-value {
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            display: block;
+            height: 100%;
+            font-size: 26px;
+        }
+    }
+}
+
+.substract, .add, .stop, .play {
+    button {
+        width: 350px;
+    }
 }
 
 .stop {
     float: left;
 }
 
+.bit {
+    width: 230px;
+    height: 67px;
+
+    input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 26px;
+    }
+}
+
+
 button {
+    font-size: 26px;
     cursor: pointer;
+    padding: 15px 71px;
 }
 
 .control {
     box-sizing: border-box;
-    padding-left: 15%;
     margin: auto;
     width: 700px;
     // outline: 1px solid black;

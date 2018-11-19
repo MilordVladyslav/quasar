@@ -26,7 +26,7 @@ body {
   /* IE6-9 fallback on horizontal gradient */
 }
 .help {
-  width: 66px;
+  width: 222px;
   margin: auto;
 }
 .wrapper {
@@ -72,13 +72,14 @@ body {
   position: relative;
   top: -35px;
   left: 566px;
+  color: white;
 }
 .line .edge {
   width: 3px;
   height: 100%;
   float: right;
   margin-right: 105px;
-  background-color: black;
+  background-color: white;
 }
 .total-credits {
   margin-top: 55px;
@@ -87,24 +88,59 @@ body {
   color: #13991a;
 }
 .random-1-8,
+.random-4-7,
 .bit,
 .substract {
   float: left;
   margin: auto;
 }
-.substract {
-  margin-left: 15%;
+.top-control {
+  width: 100%;
+  height: 65px;
+}
+.top-control div {
+  height: 100%;
+  float: left;
+  width: 33.3%;
+}
+.top-control button {
+  width: 100%;
+}
+.top-control .bit-value input {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  height: 100%;
+  font-size: 26px;
+}
+.substract button,
+.add button,
+.stop button,
+.play button {
+  width: 350px;
 }
 .stop {
   float: left;
 }
+.bit {
+  width: 230px;
+  height: 67px;
+}
+.bit input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 26px;
+}
 button {
+  font-size: 26px;
   cursor: pointer;
+  padding: 15px 71px;
 }
 .control {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-left: 15%;
   margin: auto;
   width: 700px;
 }
