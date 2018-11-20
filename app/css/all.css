@@ -144,3 +144,6 @@ button {
   margin: auto;
   width: 700px;
 }
+.active {
+  background-color: gray;
+}
