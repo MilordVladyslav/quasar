@@ -67,6 +67,10 @@ window.onload = function() {
             randomDigit = Random_4_7();
         } 
 
+        bit = document.querySelector('#bit').value
+
+        c(bit)
+
         userResult += randomDigit
         
         userValue = document.querySelector('#user-result').innerHTML = userResult;
@@ -99,12 +103,13 @@ window.onload = function() {
         }
     }
 
-    
 
     function PercentToMoney(percent, bit) {
         let result = percent / 100 * bit;
-        bit += result;
-        totalCredits += bit;
+        // bit += result;
+        totalCredits += result;
+        c(totalCredits);
+        document.querySelector('#total-credits').innerHTML = `$${totalCredits}`;
         return `You Win ${bit += result} Credits (${percent}$)`
     }
 
