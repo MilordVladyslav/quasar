@@ -60,7 +60,10 @@ window.onload = function() {
 
     document.querySelector('#play').addEventListener('click', function() {
         document.querySelector('#stop > button').removeAttribute('disabled', 'disabled')
+        document.querySelector('#stop > button').classList.remove('red')
         document.querySelector('#bit').setAttribute('disabled', 'disabled')
+        document.querySelector('#bit').classList.add('red')
+
         document.querySelector('#substract > button').setAttribute('disabled', 'disabled')
         document.querySelector('#add > button').setAttribute('disabled', 'disabled')
         let randomDigit;

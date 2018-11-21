@@ -15,13 +15,18 @@ body {
 
 
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,7db9e8+100 */
-background: #1e5799; /* Old browsers */
-background: -moz-linear-gradient(-45deg, #1e5799 0%, #7db9e8 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg, #1e5799 0%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(250deg, #3f1468 0%,#a37de8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: #1e5799; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #1e5799 0%, #7db9e8 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #1e5799 0%,#7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(250deg, #190829 0%,#3d2664 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( 
     startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 
     ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.top-control .bit-value .red {
+    border-color: @red;
+    color: @red;
 }
 
 .help {
@@ -41,8 +46,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(
 .total-credits {
     margin-top: 55px;
     float: right;
-    font-size: 35px;
-    color: #13991a;
+    font-size: 45px;
+    color: @blue;
 }
 
 .random-1-8, .random-4-7, .bit, .substract {
@@ -53,6 +58,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(
 .top-control  {
     width: 100%;
     height: 65px;
+    margin-bottom: 15px;
     div {
 
         height: 100%;
@@ -60,15 +66,21 @@ filter: progid:DXImageTransform.Microsoft.gradient(
         width: 33.3%;
     }
     button {
+        height: 65px;
         width: 100%;
     }
     .bit-value {
         input {
+            padding-left: 20px;
+            background: none;
+            color: @blue;
+            border: none;
             width: 100%;
             box-sizing: border-box;
             display: block;
             height: 100%;
             font-size: 26px;
+            border: 3px solid @blue;
         }
     }
 }
@@ -100,6 +112,10 @@ button {
     font-size: 26px;
     cursor: pointer;
     padding: 15px 71px;
+    border: none;
+    border: 3px solid @blue;
+    color: @blue;
+    background: none;
 }
 
 .control {
@@ -110,14 +126,16 @@ button {
 }
 
 .active {
-    background-color: gray;
+    background-color: @blue;
+    color: black;
 }
 
 .result {
+    color: @blue;
     text-align: center;
     width: 150px;
-    margin: 85px auto;
-    font-size: 26px;
+    margin: 172px auto;
+    font-size: 70px;
     p {
         display: inline;
     }
