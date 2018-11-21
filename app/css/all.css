@@ -147,3 +147,12 @@ button {
 .active {
   background-color: gray;
 }
+.result {
+  text-align: center;
+  width: 150px;
+  margin: 85px auto;
+  font-size: 26px;
+}
+.result p {
+  display: inline;
+}
