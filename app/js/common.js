@@ -59,6 +59,10 @@ window.onload = function() {
     let userValue;
 
     document.querySelector('#play').addEventListener('click', function() {
+        document.querySelector('#stop > button').removeAttribute('disabled', 'disabled')
+        document.querySelector('#bit').setAttribute('disabled', 'disabled')
+        document.querySelector('#substract > button').setAttribute('disabled', 'disabled')
+        document.querySelector('#add > button').setAttribute('disabled', 'disabled')
         let randomDigit;
         if(rand[0].classList.contains('active')) {
             randomDigit = Random_1_8();
@@ -67,27 +71,49 @@ window.onload = function() {
             randomDigit = Random_4_7();
         } 
 
-        bit = document.querySelector('#bit').value
+        bit = parseInt(document.querySelector('#bit').value, 10)
 
-        c(bit)
+        //string. need convertation to number.
+        c(typeof bit)
 
         userResult += randomDigit
         
         userValue = document.querySelector('#user-result').innerHTML = userResult;
-        
+
         if(userValue > 20) {
-            prize(userValue);
+            c('wow')
+            prize(userValue)
+
+            RemoveDisabled()
+    
+            userResult = 0
+            document.querySelector('#user-result').innerHTML = userResult;
+            
+            document.querySelector('#stop > button').setAttribute('disabled', 'disabled')
         }
     
     })
 
     document.querySelector('#stop').addEventListener('click', function() {
         prize(userValue);
+        
+        RemoveDisabled()
+
+        userResult = 0
+        document.querySelector('#user-result').innerHTML = userResult;
+        
+        document.querySelector('#stop > button').setAttribute('disabled', 'disabled')
     })
     
+    function RemoveDisabled() {
+        document.querySelector('#bit').removeAttribute('disabled', 'disabled')
+        document.querySelector('#substract > button').removeAttribute('disabled', 'disabled')
+        document.querySelector('#add > button').removeAttribute('disabled', 'disabled')
+    }
+
 
     function prize (userValue) {
-        if(userValue > 16 ) {
+        if(userValue > 16 && userValue <= 20 ) {
             switch(userValue) {
                 case 17:
                 return PercentToMoney(25, bit)
@@ -98,9 +124,12 @@ window.onload = function() {
                 case 20: 
                 return PercentToMoney(200, bit)
             }
-        } else {
-            return 'You defeat'
-        }
+        }else {
+            totalCredits -= bit
+            document.querySelector('#total-credits').innerHTML = `$${totalCredits}`;
+        }    
+
+    
     }
 
 
