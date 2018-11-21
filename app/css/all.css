@@ -33,54 +33,6 @@ body {
   margin: auto;
   max-width: 1280px;
 }
-.line {
-  margin: auto;
-  margin-top: 500px;
-  margin-bottom: 75px;
-  width: 700px;
-  height: 25px;
-  background-color: white;
-  -webkit-border-radius: 10px;
-          border-radius: 10px;
-  background: #1e5799;
-  /* Old browsers */
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #1e5799 0%, #2193b2 50%, #7db9e8 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #29943b), to(#f57a49));
-  background: -webkit-linear-gradient(left, #29943b 50%, #f57a49 100%);
-  background: -o-linear-gradient(left, #29943b 50%, #f57a49 100%);
-  background: linear-gradient(to right, #29943b 50%, #f57a49 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=1);
-  /* IE6-9 */
-  font-family: sans-serif;
-}
-.line .playerline {
-  width: 1%;
-  height: 100%;
-  float: left;
-  -webkit-border-top-left-radius: 10px;
-          border-top-left-radius: 10px;
-  -webkit-border-bottom-left-radius: 10px;
-          border-bottom-left-radius: 10px;
-  background-color: teal;
-}
-.line::before {
-  content: "20";
-  font-size: 32px;
-  position: relative;
-  top: -35px;
-  left: 566px;
-  color: white;
-}
-.line .edge {
-  width: 3px;
-  height: 100%;
-  float: right;
-  margin-right: 105px;
-  background-color: white;
-}
 .total-credits {
   margin-top: 55px;
   float: right;
