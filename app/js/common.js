@@ -62,6 +62,7 @@ window.onload = function() {
     let addButton       = document.querySelector('#add > button')
 
     document.querySelector('#play').addEventListener('click', function() {
+
         stopButton.removeAttribute('disabled', 'disabled')
         stopButton.classList.remove('red')
         bitInput.setAttribute('disabled', 'disabled')
@@ -78,55 +79,32 @@ window.onload = function() {
         if(rand[1].classList.contains('active')) {
             randomDigit = Random_4_7();
         } 
-
         bit = parseInt(document.querySelector('#bit').value, 10)
-
-        //string. need convertation to number.
-        c(typeof bit)
-
         userResult += randomDigit
-       
-        var i = 1;
-        
-        
-        
-        //mb reqursia with setTimeout
-        // from resultBefore to userResult
-        function AnimateDigitsAdd (resultBefore, userResult) {
-            // c(typeof resultBefore + '+' + typeof userResult)
-
-                setTimeout( () => { 
-                for (; resultBefore < userResult; resultBefore ++){ 
-                        c(resultBefore + ' HERE ' + userResult)
-                    }
-                }, 1000);
-                document.querySelector('#user-result').innerHTML = resultBefore 
-            return resultBefore   
-            
-        }   
-        
-
-        
-        let resultBefore = parseInt(document.querySelector('#user-result').innerText, 10)
-        c(resultBefore)
-
-        AnimateDigitsAdd(resultBefore, userResult)
-        // let azazaka = 0
-        // let timer = setInterval(function() {
-        //     AnimateDigitsAdd(resultBefore, userResult)
-        // }, 1000);
-        
+        function printNumbersInterval() {
+            var i = parseInt (document.querySelector('#user-result').textContent, 10)
+            var timerId = setInterval(function() {
+              userValue = document.querySelector('#user-result').innerHTML = i;
+                console.log(userResult)
+                if (i == userResult) {
+                    clearInterval(timerId);
+                }
+              i++;
+            }, 50);
+          }
+          // вызов
+        if(userResult <= 20) {
+            printNumbersInterval();
+        }  
+      
         // userValue = document.querySelector('#user-result').innerHTML = userResult;
-        // c(userResult + " + " + userValue )
-        if(userResult > 20) {
-            c('wow')
-            prize(userValue)
 
+        if(userResult > 20) {
+            totalCredits -= bit
+            document.querySelector('#total-credits').innerHTML = `$${totalCredits}`;
             RemoveDisabled()
-    
             userResult = 0
-            document.querySelector('#user-result').innerHTML = userResult;
-            
+            document.querySelector('#user-result').innerHTML = userResult;  
             document.querySelector('#stop > button').setAttribute('disabled', 'disabled')
         }
     
@@ -168,12 +146,8 @@ window.onload = function() {
                 case 20: 
                 return PercentToMoney(200, bit)
             }
-        }else {
-            totalCredits -= bit
-            document.querySelector('#total-credits').innerHTML = `$${totalCredits}`;
-        }    
+        }
 
-    
     }
 
 
@@ -187,25 +161,9 @@ window.onload = function() {
     }
 
 
-    function makeCounter(resultBefore, userResult) {
-        var resultBefore = 1;
+
       
-        return function() {
-            if(resultBefore < userResult){
-                return resultBefore++;
-            }else {
-                return userResult;
-            }
-        };
-      }
-      
-      var counter = makeCounter();
-      
-      // каждый вызов возвращает результат, увеличивая счётчик
-      setInterval(() => {
-        c( counter() );
-        document.querySelector('#user-result').innerHTML = counter();
-      }, 1000);  // 1
+
 
 
 
