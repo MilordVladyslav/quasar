@@ -17,8 +17,6 @@ window.onload = function() {
     document.querySelector("#substract").addEventListener('click', function(e) {
         if(bit > 0) bit -= 100;
         if(bit < 0) bit = 0;
-
-        
         document.querySelector('#bit').value = bit;
     })
 
@@ -33,6 +31,7 @@ window.onload = function() {
     }
 
     let rand = document.querySelectorAll(".rand");
+
     document.querySelector("#random-1-8").addEventListener('click', function() {
         for(let i = 0; i<rand.length; i++) {
             rand[i].classList.remove('active')
@@ -57,15 +56,21 @@ window.onload = function() {
     document.querySelector('#user-result').innerHTML = userResult;
 
     let userValue;
+    let stopButton      = document.querySelector('#stop > button')
+    let bitInput        = document.querySelector('#bit')
+    let substractButton = document.querySelector('#substract > button')
+    let addButton       = document.querySelector('#add > button')
 
     document.querySelector('#play').addEventListener('click', function() {
-        document.querySelector('#stop > button').removeAttribute('disabled', 'disabled')
-        document.querySelector('#stop > button').classList.remove('red')
-        document.querySelector('#bit').setAttribute('disabled', 'disabled')
-        document.querySelector('#bit').classList.add('red')
+        stopButton.removeAttribute('disabled', 'disabled')
+        stopButton.classList.remove('red')
+        bitInput.setAttribute('disabled', 'disabled')
+        bitInput.classList.add('red')
 
-        document.querySelector('#substract > button').setAttribute('disabled', 'disabled')
-        document.querySelector('#add > button').setAttribute('disabled', 'disabled')
+        substractButton.setAttribute('disabled', 'disabled')
+        substractButton.classList.add('red')
+        addButton.setAttribute('disabled', 'disabled')
+        addButton.classList.add('red')
         let randomDigit;
         if(rand[0].classList.contains('active')) {
             randomDigit = Random_1_8();
@@ -80,10 +85,40 @@ window.onload = function() {
         c(typeof bit)
 
         userResult += randomDigit
+       
+        var i = 1;
         
-        userValue = document.querySelector('#user-result').innerHTML = userResult;
+        
+        
+        //mb reqursia with setTimeout
+        // from resultBefore to userResult
+        function AnimateDigitsAdd (resultBefore, userResult) {
+            // c(typeof resultBefore + '+' + typeof userResult)
 
-        if(userValue > 20) {
+                setTimeout( () => { 
+                for (; resultBefore < userResult; resultBefore ++){ 
+                        c(resultBefore + ' HERE ' + userResult)
+                    }
+                }, 1000);
+                document.querySelector('#user-result').innerHTML = resultBefore 
+            return resultBefore   
+            
+        }   
+        
+
+        
+        let resultBefore = parseInt(document.querySelector('#user-result').innerText, 10)
+        c(resultBefore)
+
+        AnimateDigitsAdd(resultBefore, userResult)
+        // let azazaka = 0
+        // let timer = setInterval(function() {
+        //     AnimateDigitsAdd(resultBefore, userResult)
+        // }, 1000);
+        
+        // userValue = document.querySelector('#user-result').innerHTML = userResult;
+        // c(userResult + " + " + userValue )
+        if(userResult > 20) {
             c('wow')
             prize(userValue)
 
@@ -105,13 +140,19 @@ window.onload = function() {
         userResult = 0
         document.querySelector('#user-result').innerHTML = userResult;
         
-        document.querySelector('#stop > button').setAttribute('disabled', 'disabled')
+        stopButton.setAttribute('disabled', 'disabled')
+        stopButton.classList.add('red')
     })
     
     function RemoveDisabled() {
-        document.querySelector('#bit').removeAttribute('disabled', 'disabled')
-        document.querySelector('#substract > button').removeAttribute('disabled', 'disabled')
-        document.querySelector('#add > button').removeAttribute('disabled', 'disabled')
+        bitInput.removeAttribute('disabled', 'disabled')
+        bitInput.classList.remove('red')
+        
+        substractButton.removeAttribute('disabled', 'disabled')
+        substractButton.classList.remove('red')
+        
+        addButton.removeAttribute('disabled', 'disabled')
+        addButton.classList.remove('red')
     }
 
 
@@ -145,6 +186,26 @@ window.onload = function() {
         return `You Win ${bit += result} Credits (${percent}$)`
     }
 
+
+    function makeCounter(resultBefore, userResult) {
+        var resultBefore = 1;
+      
+        return function() {
+            if(resultBefore < userResult){
+                return resultBefore++;
+            }else {
+                return userResult;
+            }
+        };
+      }
+      
+      var counter = makeCounter();
+      
+      // каждый вызов возвращает результат, увеличивая счётчик
+      setInterval(() => {
+        c( counter() );
+        document.querySelector('#user-result').innerHTML = counter();
+      }, 1000);  // 1
 
 
 

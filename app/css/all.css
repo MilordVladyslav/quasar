@@ -25,7 +25,8 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#7db9e8', GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
 }
-.top-control .bit-value .red {
+.top-control .bit-value .red,
+.red {
   border-color: #c6335a;
   color: #c6335a;
 }
