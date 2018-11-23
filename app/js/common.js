@@ -81,6 +81,7 @@ window.onload = function() {
         } 
         bit = parseInt(document.querySelector('#bit').value, 10)
         userResult += randomDigit
+
         function printNumbersInterval() {
             var i = parseInt (document.querySelector('#user-result').textContent, 10)
             var timerId = setInterval(function() {
@@ -159,12 +160,6 @@ window.onload = function() {
         document.querySelector('#total-credits').innerHTML = `$${totalCredits}`;
         return `You Win ${bit += result} Credits (${percent}$)`
     }
-
-
-
-      
-
-
 
 
     function c (arg) {
